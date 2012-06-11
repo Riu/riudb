@@ -87,7 +87,7 @@ $data - dane zapisywane do dokumentu (array)
 
 	Riudb::factory()->id($id)->deldir();
 
--dodawanie pliku dokumentu 1, z folderem 1, plik z danymi niezakodowany w json dla modułu `users`
+-dodawanie pliku dokumentu $id, z folderem $id, plik z danymi niezakodowany w json dla modułu `users`
 
 	Riudb::factory('users')->id($id)->add(TRUE);
 

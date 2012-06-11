@@ -1,5 +1,13 @@
 <?php
 
+/**
+ * RiuDB
+ *
+ * @package    RiuDB
+ * @author     Radosław "Riu" Muszyński
+ * @copyright  (c) 2012 Radosław "Riu" Muszyński
+ * @license    http://www.gnu.org/licenses/gpl-3.0.txt
+ */
 class Kohana_Riudb{
 
 	// definiowanie domyślnego modułu

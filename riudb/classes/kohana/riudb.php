@@ -16,6 +16,9 @@ class Kohana_Riudb{
 	// identyfikator dokumentu
 	protected $_id;
 
+	// identyfikator dokumentu
+	protected $_debug;
+
 	// ścieżka dojścia do identyfikatora w formacie XX/XX/XX/XX
 	protected $_iddir;
 
@@ -100,8 +103,8 @@ class Kohana_Riudb{
 
  	private function mkdir($path)
 	{
-		if ((is_dir($path))){
-			chmod($path, 0777);
+		if (is_dir($path)){
+			chmod("$path", 0777);
 		}
 		else{
 			mkdir($path, 0777);
@@ -249,8 +252,6 @@ class Kohana_Riudb{
 		$this->savefile();
 		return $this;
 	}
-	
-	// zapisywanie danych
 
 	public function save($data = array(),$file = FALSE)
 	{
@@ -278,7 +279,6 @@ class Kohana_Riudb{
 		$this->savefile();
 		return $this;
 	}
-
 	// dodawanie pliku w folderze głównym dokumentu
 
  	public function addfile($file, $data = array())
@@ -309,6 +309,26 @@ class Kohana_Riudb{
 		return $this;
 	}
 
+ 	public function getfile($file)
+	{
+		$file = $this->getpath($file);
+		$file = $file.$this->_ext;
+		if(is_file($file)){
+			$data  = json_decode(file_get_contents($file));
+			if(is_object($data)){
+			return get_object_vars($data);
+			}
+			else{
+			return $data;
+			}
+			//return $file;
+		}
+		else{
+			return false;
+		}
+
+	}
+
 	protected function getarray($id, $module = FALSE)
 	{
 		if($module){
@@ -325,6 +345,7 @@ class Kohana_Riudb{
 		}
 
 	}
+
 
  	public function join($keys, $attach = FALSE, $limit = FALSE, $reverse = FALSE)
 	{
@@ -371,6 +392,7 @@ class Kohana_Riudb{
 				$value = array_slice($value, 0, $limit);
 			}
 
+
 			foreach($value as $v){
 
 				$file = $this->getarray($v,$module);
@@ -398,8 +420,6 @@ class Kohana_Riudb{
 		return $this;
 	}
 
-	// zwracanie danych
-	
  	public function render()
 	{
 		return $this->_data;

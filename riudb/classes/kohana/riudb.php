@@ -253,12 +253,20 @@ class Kohana_Riudb{
 		return $this;
 	}
 
-	public function save($data = array(),$file = FALSE)
+	public function save($data = array(),$file = FALSE,$puts = FALSE)
 	{
 		$this->_filepath = $file;
 		$array = $this->getarray($this->_id);
 
 		$keys = array_keys($array);
+
+		// dopisywanie nowych kluczy do tablicy
+		if($puts){
+			foreach($puts as $p){
+				$keys[] = $p;
+			}
+		}
+
 		$newarray = array();
 		foreach($keys as $key){
 

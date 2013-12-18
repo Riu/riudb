@@ -1,4 +1,4 @@
-riudb
+RiuDB
 =====
 
 Mechanizm składowania danych dla systemów zarządzania treścią (stara wersja)

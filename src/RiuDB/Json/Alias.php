@@ -24,19 +24,19 @@ class Alias extends \RiuDB\Json\Create {
         return $this;
     }
 
- 	public function read()
-	{
+    public function read()
+    {
         $file = $this->_path.$this->_ext;
-		if(is_file($file)){
-			if(is_array($file)){
-				return json_decode(file_get_contents($file));
-			}
-			else{
-			return get_object_vars(json_decode(file_get_contents($file)));
-			}
-		}
-		else{
-			return false;
-		}
-	}
+        if(is_file($file)){
+            if(is_array($file)){
+                return json_decode(file_get_contents($file));
+            }
+            else{
+            return get_object_vars(json_decode(file_get_contents($file)));
+            }
+        }
+        else{
+            return false;
+        }
+    }
 }

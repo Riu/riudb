@@ -159,16 +159,16 @@ abstract class Json {
 
     }
 
-	// dodawanie pliku w folderze głównym dokumentu
+    // dodawanie pliku w folderze głównym dokumentu
 
- 	public function addfile($file, $data = array())
-	{
-		$this->createdir();
-		$this->_filepath = $file;
-		$this->_data = $data;
-		$this->savefile();
-		return $this;
-	}
+    public function addfile($file, $data = array())
+    {
+        $this->createdir();
+        $this->_filepath = $file;
+        $this->_data = $data;
+        $this->savefile();
+        return $this;
+    }
     protected function getarray($id, $module = FALSE)
     {
         if($module){

@@ -1,7 +1,11 @@
 RiuDB
 =====
 
-Mechanizm składowania danych dla systemów zarządzania treścią (stara wersja)
+Mechanizm składowania danych dla systemów zarządzania treścią.
+
+UWAGA!
+Dokumentacja poniżej jest krótkim przewodnikiem dla wersji 1.0. 
+
 
 ## Wstęp
 
